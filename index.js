@@ -31,7 +31,7 @@ app.post("/songs", (req, res) => {
         }
 
         // automatically generate ID for songs
-        newSong.id = songs.lenght + 1;
+        newSong.id = songs.length + 1;
 
         //
         songs.push(newSong);
@@ -65,6 +65,16 @@ app.put("/songs/:id/tags", (req, res) => {
 
     //  return updated info to user
     res.json(song);
+});
+
+// adding a route to serve package.json for freeCodeCamp
+const path = require('path');
+
+app.get('/package.json', (req, res) => {
+    const filePath = path.join(__dirname, 'package.json');
+    const file = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(file);
+    res.json(data);
 });
 
 //  Start the server
