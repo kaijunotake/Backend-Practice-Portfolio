@@ -13,7 +13,7 @@ const songs = [
 
 //  default home page
 app.get('/', (req, res) => {
-    res.send('Welcone to Musicbox API!');
+    res.send('Welcome to Musicbox API!');
 });
 
 //  get all the collections
